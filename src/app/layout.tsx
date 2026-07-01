@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -20,6 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-terminal-os.vercel.app"),
   title: {
     default: "arzan@portfolio — PortfolioOS",
     template: "%s | arzan@portfolio",
@@ -38,6 +40,8 @@ export const metadata: Metadata = {
     "TypeScript",
     "Software Engineer",
     "Full Stack",
+    "Portfolio Website",
+    "Developer Portfolio",
   ],
   authors: [{ name: "Arzan S. S." }],
   openGraph: {
@@ -46,6 +50,7 @@ export const metadata: Metadata = {
       "Explore Arzan's portfolio through a futuristic Linux terminal. Type help to begin.",
     type: "website",
     siteName: "PortfolioOS",
+    url: "https://portfolio-terminal-os.vercel.app",
   },
   twitter: {
     card: "summary_large_image",
@@ -60,12 +65,10 @@ export const metadata: Metadata = {
   },
 };
 
-// 1. Define the props interface cleanly outside the function
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-// 2. Export standard component function
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
